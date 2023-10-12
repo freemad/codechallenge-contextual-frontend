@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Mouse Pointer Analytics Front-end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The front-end part of the Contextual code exercise, for grabbing  the mouse event in the front, analysing them in the back and finally show them as mouse statuses in a chart at front.
 
-## Available Scripts
+It's coded by React JS and have 3 major components:
+- App
+- MousePosEventComponent
+- and ChartComponent
 
-In the project directory, you can run:
+## Running Service:
+
+In the project directory, run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
+
+>**Note**
+>
+> Because the service doesn't interact with the user (except moving the pointer) it doesn't have much of test cases to cover.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you need to build the app run the above command and it builds the app for production to the `build` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Design and Structure:
 
-### `npm run eject`
+The project contains of a main Container "App" and two Components naming:
+- MousePosEventComponent: which wraps all the capture and send mouse events to the server via API calls.
+- ChartComponent: which contains all the objects and mechanism to fetch data from the server and show the chart(s).
+- and the App Component: which acts as the app container and also have the base API calls like "logon" and "logoff".
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The Chart JS is used for displaying data in chart(s) and for the API calls the "Axios" is utilised.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The base-data like "event granularity", "chart granularity", etc. are fetched and stored in the States. the "instance id" though is stored in local storage to be persisted for later use; because it's the glue part of the design to get all the events and statuses together.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Suggestion
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+There are some suggestions are come to mind at this moment which are:
+1. Add i18n for supporting locale instead of string constants, etc.
+2. Add SCSS for handling UI theme.
